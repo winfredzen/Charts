@@ -109,11 +109,11 @@
     CombinedChartData *data = [[CombinedChartData alloc] init];
     data.lineData = [self generateLineData];
     data.barData = [self generateBarData];
-    data.bubbleData = [self generateBubbleData];
-    data.scatterData = [self generateScatterData];
-    data.candleData = [self generateCandleData];
-    
-    _chartView.xAxis.axisMaximum = data.xMax + 0.25;
+//    data.bubbleData = [self generateBubbleData];
+//    data.scatterData = [self generateScatterData];
+//    data.candleData = [self generateCandleData];
+//
+//    _chartView.xAxis.axisMaximum = data.xMax + 0.25;
 
     _chartView.data = data;
 }
@@ -199,7 +199,7 @@
         [entries1 addObject:[[BarChartDataEntry alloc] initWithX:0.0 y:(arc4random_uniform(25) + 25)]];
         
         // stacked
-        [entries2 addObject:[[BarChartDataEntry alloc] initWithX:0.0 yValues:@[@(arc4random_uniform(13) + 12), @(arc4random_uniform(13) + 12)]]];
+//        [entries2 addObject:[[BarChartDataEntry alloc] initWithX:0.0 yValues:@[@(arc4random_uniform(13) + 12), @(arc4random_uniform(13) + 12)]]];
     }
 
     BarChartDataSet *set1 = [[BarChartDataSet alloc] initWithEntries:entries1 label:@"Bar 1"];
@@ -223,11 +223,11 @@
     float barWidth = 0.45f; // x2 dataset
     // (0.45 + 0.02) * 2 + 0.06 = 1.00 -> interval per "group"
     
-    BarChartData *d = [[BarChartData alloc] initWithDataSets:@[set1, set2]];
+    BarChartData *d = [[BarChartData alloc] initWithDataSets:@[set1]];
     d.barWidth = barWidth;
     
     // make this BarData object grouped
-    [d groupBarsFromX:0.0 groupSpace:groupSpace barSpace:barSpace]; // start at x = 0
+//    [d groupBarsFromX:0.0 groupSpace:groupSpace barSpace:barSpace]; // start at x = 0
     
     return d;
 }
